@@ -78,6 +78,7 @@ export default function Contact() {
                     >
                         <form
                             onSubmit={submit}
+                            noValidate
                             data-testid="contact-form"
                             className="rounded-[28px] bg-white p-6 shadow-soft ring-1 ring-yamet-teal/10 sm:p-8"
                         >

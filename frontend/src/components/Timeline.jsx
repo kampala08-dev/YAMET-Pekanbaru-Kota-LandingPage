@@ -149,24 +149,44 @@ export default function Timeline() {
     const [activeIdx, setActiveIdx] = useState(0);
 
     useEffect(() => {
-        const observers = [];
-        MILESTONES.forEach((m, i) => {
-            const el = document.getElementById(`stage-${m.id}`);
-            if (!el) return;
-            const ob = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((e) => {
-                        if (e.isIntersecting && e.intersectionRatio > 0.25) {
-                            setActiveIdx(i);
-                        }
-                    });
-                },
-                { threshold: [0.25, 0.5, 0.75], rootMargin: "-30% 0px -40% 0px" },
-            );
-            ob.observe(el);
-            observers.push(ob);
-        });
-        return () => observers.forEach((o) => o.disconnect());
+        const stageEls = MILESTONES.map((m) => document.getElementById(`stage-${m.id}`)).filter(
+            Boolean,
+        );
+        if (!stageEls.length) return;
+
+        const update = () => {
+            const viewportCenter = window.innerHeight / 2;
+            let bestIdx = 0;
+            let bestDist = Infinity;
+            stageEls.forEach((el, i) => {
+                const r = el.getBoundingClientRect();
+                const center = r.top + r.height / 2;
+                const dist = Math.abs(center - viewportCenter);
+                if (dist < bestDist) {
+                    bestDist = dist;
+                    bestIdx = i;
+                }
+            });
+            setActiveIdx(bestIdx);
+        };
+
+        update();
+        let ticking = false;
+        const onScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    update();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", update);
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", update);
+        };
     }, []);
 
     return (

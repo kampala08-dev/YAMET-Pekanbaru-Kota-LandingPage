@@ -1,0 +1,95 @@
+{
+  "theme": "light",
+  "archetype": "1 (Organic & Earthy / Soft & Warm)",
+  "brand_name": "YAMET Palembang Dempo",
+  "colors": {
+    "background": "#FDFBF7",
+    "surface": "#FFFFFF",
+    "primary": "#3A868F",
+    "primary_light": "#E3F2F6",
+    "accent_peach": "#FFB5A7",
+    "accent_orange": "#F4A261",
+    "text_main": "#1F333E",
+    "text_muted": "#5B707B",
+    "border": "#E5EBEF",
+    "whatsapp_green": "#25D366"
+  },
+  "typography": {
+    "heading_font": "Nunito",
+    "body_font": "DM Sans",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-800",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-800",
+      "h3": "text-2xl sm:text-3xl font-bold text-slate-800",
+      "h4": "text-xl sm:text-2xl font-bold text-slate-800",
+      "body": "text-base lg:text-lg leading-relaxed text-slate-600",
+      "label": "text-sm font-bold uppercase tracking-wider text-teal-600"
+    }
+  },
+  "layout": {
+    "spacing": "Generous padding (py-20 to py-32 for sections), wide gaps (gap-8 to gap-12)",
+    "border_radius": "rounded-2xl, rounded-3xl for cards, rounded-full for buttons and badges",
+    "surfaces": "Soft minimal shadows (shadow-sm to shadow-md), Glassmorphism for sticky header (bg-white/80 backdrop-blur-xl)",
+    "white_space": "High - allow elements to breathe to create a calming, non-clinical environment."
+  },
+  "components": {
+    "navbar": "Sticky glassmorphism header (z-50). Logo on left, navigation in center, CTA 'Konsultasi Gratis' (redirecting to WhatsApp) on right. Mobile hamburger menu.",
+    "hero": "Two-column layout on desktop. Left: Headline, Subheadline, CTA primary (Teal) + Secondary (Outline), Trust Badges. Right: Parallax floating child illustration/photo. Background: subtle floating shapes.",
+    "timeline_section": "CRITICAL FEATURE. Vertical timeline using Framer Motion. A central vertical line that draws itself (useScroll). 6 alternating nodes (0-12m, 1-2y, 2-3y, 3-4y, 4-5y, 5-6y). Each node contains a Lottie animation, age badge, description, and a 2x2 grid of milestones (Bahasa, Motorik, Sosial, Kognitif) with small icons. Sticky age indicator on mobile.",
+    "services": "Grid of 4 cards (Wicara, Fisioterapi, Okupasi, Psikologi). Rounded-3xl, pastel tinted backgrounds (e.g., bg-teal-50, bg-orange-50). Hover effect: -translate-y-2, scale up slightly, enhanced shadow.",
+    "why_us": "Bento grid or alternating rows highlighting unique value propositions with icons.",
+    "workflow": "4 animated steps. Horizontal on desktop, vertical on mobile. Connecting dashed lines.",
+    "testimonials": "Shadcn Carousel (embla-carousel). Rounded cards, quote icons, parent names.",
+    "faq": "Shadcn Accordion. Clean, minimal borders. Friendly plus/minus icons.",
+    "contact": "Two columns: Form (Name, WA, Keluhan) on left, Contact Details + Google Maps embed on right.",
+    "floating_whatsapp": "Fixed bottom-right corner button. Green (#25D366), rounded-full, pulsing animation (animate-pulse or custom framer-motion pulse), high z-index."
+  },
+  "animations": {
+    "scroll_reveal": "Framer Motion: initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.6, ease: 'easeOut' }}",
+    "stagger_children": "Framer Motion: variants with staggerChildren: 0.1",
+    "hover_state": "transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1",
+    "timeline_line": "Framer Motion: motion.div style={{ scaleY: scrollYProgress, transformOrigin: 'top' }}"
+  },
+  "image_urls": {
+    "hero": [
+      {
+        "url": "https://images.unsplash.com/photo-1730389658656-36aaa19513fc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGNoaWxkJTIwcGFyZW50cyUyMHBsYXl8ZW58MHx8fHwxNzgyMDM0MzMyfDA&ixlib=rb-4.1.0&q=85",
+        "category": "hero",
+        "description": "Happy child playing with parent"
+      }
+    ],
+    "services": [
+      {
+        "url": "https://images.unsplash.com/photo-1632053003385-245d2569568a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwzfHxwZWRpYXRyaWMlMjB0aGVyYXB5JTIwY2hpbGR8ZW58MHx8fHwxNzgyMDM0MzMyfDA&ixlib=rb-4.1.0&q=85",
+        "category": "therapy",
+        "description": "Pediatric therapy"
+      },
+      {
+        "url": "https://images.pexels.com/photos/8460041/pexels-photo-8460041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "category": "psychology",
+        "description": "Happy child sitting"
+      }
+    ],
+    "general": [
+      {
+        "url": "https://images.unsplash.com/photo-1501686637-b7aa9c48a882?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHx0b2RkbGVyJTIwbGVhcm5pbmclMjB0b3lzfGVufDB8fHx8MTc4MjAzNDMzMnww&ixlib=rb-4.1.0&q=85",
+        "category": "cognitive",
+        "description": "Child building blocks"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "IMPORTANT: Write all components using `.js`/`.jsx` files. DO NOT use TypeScript (.tsx).",
+    "Install required dependencies: `yarn add framer-motion lucide-react @lottiefiles/react-lottie-player embla-carousel-react react-hook-form`.",
+    "Add Google Fonts 'Nunito' and 'DM Sans' to the index.html or global CSS.",
+    "All language MUST be in Bahasa Indonesia as requested.",
+    "Tone is warm, empathetic, trustworthy, and professional. Avoid dark mode entirely.",
+    "Ensure every interactive element (buttons, form inputs, accordion triggers, carousel controls) has a unique `data-testid` attribute (e.g., `data-testid=\"hero-cta-button\"`).",
+    "Build the 'Timeline Perjalanan Tumbuh Kembang' as the core interactive piece. Use framer-motion to draw a vertical line on scroll. Use `@lottiefiles/react-lottie-player` to show a generic child animation JSON (use public lottie URLs for testing, e.g., https://lottie.host/294b684d-d6b4-4116-ab35-853466c5c0aa/P1KqFp3H73.json) in each milestone card.",
+    "Make the layout mobile-first. The timeline should have a sticky 'Age' indicator at the top on mobile while scrolling through the milestones.",
+    "Use Shadcn UI primarily for Accordions, Forms, and Carousel. Style them to have rounded corners (rounded-2xl) and soft borders, removing any default 'Vercel/sterile' boxy look.",
+    "Implement smooth scrolling to sections when clicking on navbar links.",
+    "Floating WhatsApp CTA should be absolutely clear, fixed at bottom-right, and pulse to attract attention.",
+    "Ensure high contrast and accessibility while keeping the colors soft (use the teal #3A868F for primary text on light backgrounds)."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "summary": "Tested YAMET Palembang Dempo landing page (backend + frontend). All 8 backend pytest cases PASS (root, leads CRUD, validation, WhatsApp sanitisation, persistence/sort). Frontend renders cleanly with 0 console errors, every required data-testid is present and CTAs link to the correct WhatsApp URL (https://wa.me/6281372394004?text=...). Nav scroll-spy, hero CTAs, services, FAQ accordion, testimonials prev/next/dot, contact form submit (valid -> POST /api/leads + success toast 'Terima kasih! Tim YAMET akan menghubungi Anda segera.'), floating WhatsApp + delayed tip, footer year 2026, address, opening hours and Instagram handle all verified. 2 issues found: (1) HIGH - mobile sticky age indicator never updates while scrolling timeline, (2) LOW - empty form shows the browser's native HTML5 validation popup (English: 'Please fill out this field.') instead of a Bahasa Indonesia sonner toast.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Timeline (mobile)",
+        "issue": "[data-testid='timeline-sticky-age'] stays at '0 – 12 Bulan' even after scrolling all the way to stages 3-4/4-5/5-6 tahun on 390x844 viewport. Root cause: IntersectionObserver in /app/frontend/src/components/Timeline.jsx (line ~156) uses rootMargin: '-30% 0px -40% 0px' which shrinks the observation window to ~30% of viewport (~253px on a 844px screen), and then requires e.intersectionRatio > 0.25 of the FULL stage element. On mobile each stage card is far taller than that 253px slice, so intersectionRatio remains < 0.25 and setActiveIdx is never called. Suggested fix: drop the >0.25 ratio check (rely solely on isIntersecting inside the trimmed rootMargin), or compute the active index from scroll position instead of element ratio.",
+        "selector": "[data-testid='timeline-sticky-age']",
+        "priority": "HIGH"
+      },
+      {
+        "component": "Contact form",
+        "issue": "Empty-submit shows the browser-native HTML5 validation tooltip ('Please fill out this field.') instead of the required Bahasa Indonesia error toast. The form correctly does NOT call /api/leads on empty submit, but no sonner toast is shown. Add an onSubmit handler that calls e.preventDefault() and triggers toast.error('Mohon lengkapi data terlebih dahulu.') when required fields are empty, OR add noValidate to the <form> and handle validation in JS.",
+        "selector": "[data-testid='contact-form']",
+        "priority": "LOW"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_leads_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Fix mobile timeline sticky age update: relax IntersectionObserver ratio check or use scroll-position based detection in Timeline.jsx (lines 151-170).",
+    "Replace HTML5 native required validation popup with a Bahasa Indonesia sonner toast (e.g., 'Mohon lengkapi nama, nomor WhatsApp, dan keluhan.') on empty submit in Contact.jsx."
+  ],
+  "critical_code_review_comments": [
+    "backend/server.py: logger is defined AFTER the route that references it inside create_lead's except block (line 123 uses logger which is initialised at line 155). If db.leads.insert_one ever raises, this will cause a NameError before the HTTPException is raised. Move logging.basicConfig + logger = logging.getLogger(__name__) above the routes.",
+    "backend/server.py: /api/leads has no authentication and is publicly readable - acceptable for MVP but flag for production (consider basic auth or admin token).",
+    "Timeline.jsx IntersectionObserver threshold is too restrictive for tall mobile cards (see HIGH bug above).",
+    "frontend uses HTML5 'required' attributes which produce browser-locale messages, conflicting with the Bahasa Indonesia UX requirement."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_leads_api.py (new)"
+  ],
+  "success_rate": {
+    "backend": "100%",
+    "frontend": "~90%"
+  },
+  "test_credentials": "N/A - no auth in MVP",
+  "seed_data_creation": "Tests created 2 TEST_-prefixed lead documents in MongoDB (TEST_Bunda Ayu, TEST_Sanitize, TEST_Bunda Sari from UI). Cleanup not implemented since /api/leads has no DELETE endpoint.",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend test suite at /app/backend/tests/test_leads_api.py covers root + leads CRUD/validation/sanitisation. Re-run with: pytest /app/backend/tests/test_leads_api.py -v --junitxml=/app/test_reports/pytest/pytest_results.xml. Key UI flows already exercised: nav smooth-scroll for all 6 links, hero-cta-timeline scrolls to #tumbuh-kembang, testimonial-dot-* swap active classes, contact form successfully posts to /api/leads. After main agent fixes the sticky-age bug, retest on 390x844 by scrolling progressively (window.scrollBy 350px x 20) and assert timeline-sticky-age text changes across stages.",
+  "rca of the issue": "Mobile sticky age stays static: Timeline.jsx line 156-165 - IntersectionObserver with rootMargin '-30% 0px -40% 0px' creates an effective root height of only ~30% of viewport (~253px on mobile). The `intersectionRatio > 0.25` guard then requires 25% of the FULL stage element to be visible inside that 253px slice. Because each stage card on mobile is ~1500-2000px tall, the maximum achievable ratio is ~253/2000 = 0.13, never exceeding 0.25 - so setActiveIdx never runs. Reproduction: open site at 390x844, scroll into #tumbuh-kembang, then window.scrollBy(0, 350) repeatedly - sticky text remains '0 – 12 Bulan'. Mitigation: remove the intersectionRatio threshold (use only isIntersecting), or drop the threshold array and compute active stage from a scroll-position approach (e.g., find the stage whose center is closest to viewport center)."
+}

@@ -1,15 +1,190 @@
-import React from "react";
+import React, { useEffect, useState, Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, ArrowDownCircle, Sparkles, Users, BadgeCheck, HeartHandshake } from "lucide-react";
 import { waLink } from "../data/site";
 
+// Lazy so three.js ships in its own chunk — never downloaded on mobile / no-WebGL.
+const SensoryRoom3D = lazy(() => import("./SensoryRoom3D"));
+
+function canRender3D() {
+    if (typeof window === "undefined") return false;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return false;
+    if (window.innerWidth < 1024) return false;
+    try {
+        const c = document.createElement("canvas");
+        if (!(c.getContext("webgl2") || c.getContext("webgl"))) return false;
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
 const trustBadges = [
-    { icon: Users, label: "Ratusan anak terbantu" },
-    { icon: BadgeCheck, label: "Tim terapis bersertifikat" },
-    { icon: HeartHandshake, label: "Program individual" },
+    { icon: Users, label: "Ratusan anak terbantu", color: "text-brand-blue" },
+    { icon: BadgeCheck, label: "Tim terapis bersertifikat", color: "text-brand-green" },
+    { icon: HeartHandshake, label: "Program individual", color: "text-brand-red" },
 ];
 
+function HeroCopy() {
+    return (
+        <>
+            <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm backdrop-blur"
+                data-testid="hero-eyebrow"
+            >
+                <Sparkles className="h-3.5 w-3.5" />
+                Pusat Tumbuh Kembang Anak — Palembang Dempo
+            </motion.div>
+
+            <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                className="mt-6 font-heading text-4xl font-black leading-[1.1] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl"
+                data-testid="hero-headline"
+            >
+                Bantu si Kecil Mencapai
+                <span className="relative inline-block px-2">
+                    <span className="relative z-10 text-yamet-teal">Potensi Terbaiknya</span>
+                    <svg
+                        aria-hidden="true"
+                        className="absolute inset-x-0 bottom-1 -z-0 w-full"
+                        viewBox="0 0 300 18"
+                        preserveAspectRatio="none"
+                    >
+                        <path
+                            d="M2 14 C 80 4, 220 4, 298 14"
+                            stroke="#FFB5A7"
+                            strokeWidth="6"
+                            strokeLinecap="round"
+                            fill="none"
+                        />
+                    </svg>
+                </span>
+                <br />
+                Lewat Intervensi Dini.
+            </motion.h1>
+
+            <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                className="mt-6 max-w-xl text-base leading-relaxed text-yamet-ink-muted sm:text-lg"
+                data-testid="hero-subheadline"
+            >
+                Sensori integrasi, terapi wicara, okupasi, fisioterapi, terapi perilaku,
+                dan lainnya — disusun secara individual oleh tim terapis berpengalaman
+                untuk mendampingi perjalanan tumbuh kembang anak Anda.
+            </motion.p>
+
+            <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+            >
+                <a
+                    href={waLink()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="hero-cta-whatsapp"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-yamet-teal px-7 py-4 text-base font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-teal-700 hover:shadow-xl"
+                >
+                    <MessageCircle className="h-5 w-5 transition-transform group-hover:rotate-[-6deg]" />
+                    Konsultasi via WhatsApp
+                </a>
+                <a
+                    href="#tumbuh-kembang"
+                    data-testid="hero-cta-timeline"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-yamet-teal/30 bg-white/70 px-7 py-3.5 text-base font-bold text-yamet-teal shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal hover:shadow-md"
+                >
+                    <ArrowDownCircle className="h-5 w-5 transition-transform group-hover:translate-y-0.5" />
+                    Lihat Tahap Tumbuh Kembang
+                </a>
+            </motion.div>
+
+            {/* Trust badges */}
+            <motion.ul
+                initial="hidden"
+                animate="show"
+                variants={{
+                    hidden: { opacity: 0 },
+                    show: {
+                        opacity: 1,
+                        transition: { staggerChildren: 0.08, delayChildren: 0.4 },
+                    },
+                }}
+                className="mt-10 flex flex-wrap gap-3"
+                data-testid="hero-trust-badges"
+            >
+                {trustBadges.map((b) => (
+                    <motion.li
+                        key={b.label}
+                        variants={{
+                            hidden: { opacity: 0, y: 12 },
+                            show: { opacity: 1, y: 0 },
+                        }}
+                        className="flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/80 px-4 py-2 text-xs font-semibold text-yamet-ink shadow-sm backdrop-blur sm:text-sm"
+                    >
+                        <b.icon className={`h-4 w-4 ${b.color}`} />
+                        {b.label}
+                    </motion.li>
+                ))}
+            </motion.ul>
+        </>
+    );
+}
+
 export default function Hero() {
+    const [is3d, setIs3d] = useState(false);
+
+    useEffect(() => {
+        const update = () => setIs3d(canRender3D());
+        update();
+        const m = window.matchMedia?.("(prefers-reduced-motion: reduce)");
+        m?.addEventListener?.("change", update);
+        window.addEventListener("resize", update);
+        return () => {
+            m?.removeEventListener?.("change", update);
+            window.removeEventListener("resize", update);
+        };
+    }, []);
+
+    if (is3d) {
+        // 3D mode: sensory-integration room as the background layer, copy frontmost.
+        return (
+            <section
+                id="hero"
+                data-testid="hero-section"
+                className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16 lg:pt-32 lg:pb-20"
+            >
+                <Suspense fallback={null}>
+                    <SensoryRoom3D />
+                </Suspense>
+
+                {/* legibility scrims */}
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-r from-yamet-cream via-yamet-cream/80 to-transparent"
+                />
+                <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-yamet-cream to-transparent"
+                />
+
+                <div className="relative z-10 mx-auto w-full max-w-7xl px-5 lg:px-8">
+                    <div className="max-w-2xl">
+                        <HeroCopy />
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    // Fallback: classic two-column hero (mobile / reduced-motion / no-WebGL).
     return (
         <section
             id="hero"
@@ -27,112 +202,7 @@ export default function Hero() {
             <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 lg:grid-cols-12 lg:gap-10 lg:px-8">
                 {/* Left: text */}
                 <div className="lg:col-span-7">
-                    <motion.div
-                        initial={{ opacity: 0, y: 18 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm backdrop-blur"
-                        data-testid="hero-eyebrow"
-                    >
-                        <Sparkles className="h-3.5 w-3.5" />
-                        Pusat Tumbuh Kembang Anak — Palembang Dempo
-                    </motion.div>
-
-                    <motion.h1
-                        initial={{ opacity: 0, y: 18 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                        className="mt-6 font-heading text-4xl font-black leading-[1.1] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl"
-                        data-testid="hero-headline"
-                    >
-                        Bantu si Kecil Mencapai
-                        <span className="relative inline-block px-2">
-                            <span className="relative z-10 text-yamet-teal">Potensi Terbaiknya</span>
-                            <svg
-                                aria-hidden="true"
-                                className="absolute inset-x-0 bottom-1 -z-0 w-full"
-                                viewBox="0 0 300 18"
-                                preserveAspectRatio="none"
-                            >
-                                <path
-                                    d="M2 14 C 80 4, 220 4, 298 14"
-                                    stroke="#FFB5A7"
-                                    strokeWidth="6"
-                                    strokeLinecap="round"
-                                    fill="none"
-                                />
-                            </svg>
-                        </span>
-                        <br />
-                        Lewat Intervensi Dini.
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 18 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                        className="mt-6 max-w-xl text-base leading-relaxed text-yamet-ink-muted sm:text-lg"
-                        data-testid="hero-subheadline"
-                    >
-                        Terapi wicara, fisioterapi, terapi okupasi, dan psikologi anak — disusun
-                        secara individual oleh tim terapis berpengalaman untuk mendampingi
-                        perjalanan tumbuh kembang anak Anda.
-                    </motion.p>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 18 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                        className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
-                    >
-                        <a
-                            href={waLink()}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-testid="hero-cta-whatsapp"
-                            className="group inline-flex items-center justify-center gap-2 rounded-full bg-yamet-teal px-7 py-4 text-base font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-teal-700 hover:shadow-xl"
-                        >
-                            <MessageCircle className="h-5 w-5 transition-transform group-hover:rotate-[-6deg]" />
-                            Konsultasi Gratis
-                        </a>
-                        <a
-                            href="#tumbuh-kembang"
-                            data-testid="hero-cta-timeline"
-                            className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-yamet-teal/30 bg-white/70 px-7 py-3.5 text-base font-bold text-yamet-teal shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal hover:shadow-md"
-                        >
-                            <ArrowDownCircle className="h-5 w-5 transition-transform group-hover:translate-y-0.5" />
-                            Lihat Tahap Tumbuh Kembang
-                        </a>
-                    </motion.div>
-
-                    {/* Trust badges */}
-                    <motion.ul
-                        initial="hidden"
-                        animate="show"
-                        variants={{
-                            hidden: { opacity: 0 },
-                            show: {
-                                opacity: 1,
-                                transition: { staggerChildren: 0.08, delayChildren: 0.4 },
-                            },
-                        }}
-                        className="mt-10 flex flex-wrap gap-3"
-                        data-testid="hero-trust-badges"
-                    >
-                        {trustBadges.map((b) => (
-                            <motion.li
-                                key={b.label}
-                                variants={{
-                                    hidden: { opacity: 0, y: 12 },
-                                    show: { opacity: 1, y: 0 },
-                                }}
-                                className="flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/80 px-4 py-2 text-xs font-semibold text-yamet-ink shadow-sm backdrop-blur sm:text-sm"
-                            >
-                                <b.icon className="h-4 w-4 text-yamet-teal" />
-                                {b.label}
-                            </motion.li>
-                        ))}
-                    </motion.ul>
+                    <HeroCopy />
                 </div>
 
                 {/* Right: image with floating accents */}
@@ -144,19 +214,18 @@ export default function Hero() {
                     data-testid="hero-visual"
                 >
                     <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
-                        {/* Soft blob behind */}
-                        <div
-                            aria-hidden="true"
-                            className="absolute inset-4 -z-10 animate-blob bg-yamet-peach/40"
-                            style={{ filter: "blur(0.5px)" }}
-                        />
-                        <div className="absolute inset-0 -z-10 animate-floaty-slow rounded-[42%_58%_70%_30%/45%_30%_70%_55%] bg-yamet-teal-50" />
+                        {/* Offset accent panels */}
+                        <div aria-hidden="true" className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-[2.25rem] bg-yamet-peach/50" />
+                        <div aria-hidden="true" className="absolute -top-5 -left-5 -z-10 h-28 w-28 rounded-[2rem] bg-yamet-teal-50" />
 
-                        <div className="relative h-full w-full overflow-hidden rounded-[40%_60%_55%_45%/55%_45%_55%_45%] shadow-glow ring-8 ring-white">
+                        <div className="relative flex h-full w-full items-end justify-center overflow-hidden rounded-[2.25rem] bg-gradient-to-b from-yamet-teal-50 via-yamet-cream to-yamet-peach-50 shadow-glow ring-1 ring-yamet-ink/5">
+                            <div aria-hidden="true" className="absolute left-6 top-8 h-8 w-8 rounded-full bg-brand-yellow/70" />
+                            <div aria-hidden="true" className="absolute right-8 top-14 h-5 w-5 rounded-full bg-brand-blue/60" />
+                            <div aria-hidden="true" className="absolute right-12 bottom-28 h-6 w-6 rounded-full bg-brand-green/50" />
                             <img
-                                src="https://images.unsplash.com/photo-1730389658656-36aaa19513fc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHxoYXBweSUyMGNoaWxkJTIwcGFyZW50cyUyMHBsYXl8ZW58MHx8fHwxNzgyMDM0MzMyfDA&ixlib=rb-4.1.0&q=85"
-                                alt="Anak ceria bermain bersama orang tua"
-                                className="h-full w-full animate-floaty object-cover"
+                                src="/u-4-tahun.webp"
+                                alt="Anak ceria di YAMET Palembang"
+                                className="relative z-10 h-[97%] w-auto object-contain drop-shadow-2xl"
                                 loading="eager"
                             />
                         </div>

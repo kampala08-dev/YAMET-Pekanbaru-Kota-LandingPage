@@ -1,6 +1,6 @@
 // Site-wide constants for YAMET Palembang Dempo
 
-export const WHATSAPP_NUMBER = "6281372394004";
+export const WHATSAPP_NUMBER = "6281288080896";
 
 export const WA_DEFAULT_MESSAGE =
     "Halo YAMET Palembang Dempo, saya ingin berkonsultasi mengenai tumbuh kembang anak saya.";
@@ -33,8 +33,14 @@ export const OPENING_HOURS = [
 export const INSTAGRAM_HANDLE = "@yametpalembang";
 export const INSTAGRAM_URL = "https://instagram.com/yametpalembang";
 
+// Direct ke tempat YAMET (bukan query alamat teks). Embed pakai nama bisnis
+// + koordinat asli; tautan pakai short-link resmi Google Maps.
 export const MAPS_EMBED_URL =
-    "https://www.google.com/maps?q=Jl.+Dempo+Luar+No.558,+17+Ilir,+Kec.+Ilir+Tim.+I,+Kota+Palembang,+Sumatera+Selatan+30125&output=embed";
+    "https://www.google.com/maps?q=YAMET+Child+Development+Center+Palembang&center=-2.9812891,104.7591358&z=16&output=embed";
 
-export const MAPS_LINK =
-    "https://www.google.com/maps?q=Jl.+Dempo+Luar+No.558,+17+Ilir,+Kec.+Ilir+Tim.+I,+Kota+Palembang,+Sumatera+Selatan+30125";
+export const MAPS_LINK = "https://maps.app.goo.gl/Dw8MyZpjp7bq1xmG9";
+
+// Google Business / Maps reviews
+export const GOOGLE_REVIEW_URL = "https://maps.app.goo.gl/Dw8MyZpjp7bq1xmG9";
+export const GOOGLE_RATING = "5,0";
+export const GOOGLE_REVIEW_COUNT = 127;

@@ -61,7 +61,7 @@ export default function Contact() {
                     <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
                         Kontak & Lokasi
                     </div>
-                    <h2 className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-yamet-ink sm:text-4xl lg:text-5xl">
+                    <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Mari{" "}
                         <span className="text-yamet-teal">bertemu</span> & berbagi cerita.
                     </h2>
@@ -80,10 +80,10 @@ export default function Contact() {
                             onSubmit={submit}
                             noValidate
                             data-testid="contact-form"
-                            className="rounded-[28px] bg-white p-6 shadow-soft ring-1 ring-yamet-teal/10 sm:p-8"
+                            className="rounded-[28px] bg-white p-6 border border-yamet-ink/10 shadow-soft sm:p-8"
                         >
                             <h3 className="font-heading text-xl font-extrabold text-yamet-ink sm:text-2xl">
-                                Konsultasi Gratis — Tinggalkan Pesan
+                                Konsultasi — Tinggalkan Pesan
                             </h3>
                             <p className="mt-1.5 text-sm text-yamet-ink-muted">
                                 Isi singkat, tim kami akan menghubungi Anda lewat WhatsApp.
@@ -193,7 +193,7 @@ export default function Contact() {
                         transition={{ duration: 0.6 }}
                         className="space-y-6 lg:col-span-5"
                     >
-                        <div className="rounded-[28px] bg-white p-6 shadow-soft ring-1 ring-yamet-teal/10 sm:p-8">
+                        <div className="rounded-[28px] bg-white p-6 border border-yamet-ink/10 shadow-soft sm:p-8">
                             <h3 className="font-heading text-lg font-extrabold text-yamet-ink">
                                 YAMET Palembang Dempo
                             </h3>
@@ -271,7 +271,7 @@ export default function Contact() {
                         </div>
 
                         <div
-                            className="overflow-hidden rounded-[28px] bg-white shadow-soft ring-1 ring-yamet-teal/10"
+                            className="overflow-hidden rounded-[28px] bg-white border border-yamet-ink/10 shadow-soft"
                             data-testid="contact-map"
                         >
                             <iframe

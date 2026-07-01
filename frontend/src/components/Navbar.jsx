@@ -29,7 +29,7 @@ export default function Navbar() {
         >
             <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-8">
                 <a href="#hero" data-testid="navbar-logo-link" className="shrink-0">
-                    <Logo />
+                    <Logo className="h-10" />
                 </a>
 
                 <nav className="hidden items-center gap-8 lg:flex" aria-label="Navigasi utama">
@@ -54,7 +54,7 @@ export default function Navbar() {
                     className="hidden items-center gap-2 rounded-full bg-yamet-teal px-5 py-2.5 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-teal-700 hover:shadow-lg lg:inline-flex"
                 >
                     <MessageCircle className="h-4 w-4" />
-                    Konsultasi Gratis
+                    Konsultasi
                 </a>
 
                 <button
@@ -98,7 +98,7 @@ export default function Navbar() {
                                 className="mt-2 flex items-center justify-center gap-2 rounded-full bg-yamet-teal px-5 py-3 text-sm font-bold text-white shadow-glow"
                             >
                                 <MessageCircle className="h-4 w-4" />
-                                Konsultasi Gratis
+                                Konsultasi
                             </a>
                         </div>
                     </motion.div>

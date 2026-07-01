@@ -139,3 +139,6 @@ html {
     background: #FFB5A7;
     color: #1F333E;
 }
+
+/* Consistent anchor offset for fixed navbar */
+section[id] { scroll-margin-top: 88px; }

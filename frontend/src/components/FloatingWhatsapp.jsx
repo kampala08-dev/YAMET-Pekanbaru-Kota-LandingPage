@@ -33,7 +33,7 @@ export default function FloatingWhatsapp() {
                         </button>
                         <div className="text-yamet-teal">Halo Bunda & Ayah 👋</div>
                         <div className="text-yamet-ink-muted">
-                            Butuh konsultasi tumbuh kembang? Chat kami sekarang — gratis.
+                            Butuh konsultasi tumbuh kembang? Chat kami sekarang.
                         </div>
                     </motion.div>
                 )}

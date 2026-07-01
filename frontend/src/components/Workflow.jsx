@@ -1,30 +1,36 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ClipboardCheck, FileText, HeartHandshake, LineChart } from "lucide-react";
+import { Eye, ClipboardCheck, FileText, HeartHandshake, LineChart } from "lucide-react";
 
 const STEPS = [
     {
         n: "01",
-        icon: ClipboardCheck,
-        title: "Konsultasi & Asesmen Awal",
-        desc: "Diskusi awal dengan terapis & psikolog untuk memahami kondisi dan kebutuhan anak.",
+        icon: Eye,
+        title: "Observasi Anak",
+        desc: "Anak diobservasi langsung oleh tim terapis untuk memahami kondisi dan kebutuhannya.",
     },
     {
         n: "02",
-        icon: FileText,
-        title: "Penyusunan Program Individual",
-        desc: "Program terapi disusun khusus berdasarkan asesmen — bukan satu solusi untuk semua.",
+        icon: ClipboardCheck,
+        title: "Asesmen Awal",
+        desc: "Asesmen mendalam oleh terapis & psikolog sebagai dasar penyusunan program.",
     },
     {
         n: "03",
+        icon: FileText,
+        title: "Program Individual",
+        desc: "Program terapi disusun khusus berdasarkan hasil asesmen — bukan satu solusi untuk semua.",
+    },
+    {
+        n: "04",
         icon: HeartHandshake,
         title: "Sesi Terapi Rutin",
         desc: "Pendampingan rutin yang hangat, terstruktur, dan menyenangkan untuk anak.",
     },
     {
-        n: "04",
+        n: "05",
         icon: LineChart,
-        title: "Evaluasi & Laporan Perkembangan",
+        title: "Evaluasi & Laporan",
         desc: "Update berkala untuk orang tua — transparan, terukur, dan komunikatif.",
     },
 ];
@@ -47,8 +53,8 @@ export default function Workflow() {
                     <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
                         Alur Layanan
                     </div>
-                    <h2 className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-yamet-ink sm:text-4xl lg:text-5xl">
-                        Empat langkah,{" "}
+                    <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
+                        Lima langkah,{" "}
                         <span className="text-yamet-teal">satu tujuan</span>.
                     </h2>
                     <p className="mt-4 text-base leading-relaxed text-yamet-ink-muted sm:text-lg">
@@ -57,7 +63,7 @@ export default function Workflow() {
                     </p>
                 </motion.div>
 
-                <div className="relative mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+                <div className="relative mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-4">
                     {/* Connecting line (desktop) */}
                     <div className="absolute left-0 right-0 top-14 hidden h-0.5 lg:block" aria-hidden="true">
                         <div className="mx-12 h-full rounded-full border-t-2 border-dashed border-yamet-teal/30" />
@@ -72,12 +78,11 @@ export default function Workflow() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-60px" }}
                                 transition={{ duration: 0.55, delay: i * 0.1 }}
-                                whileHover={{ y: -6 }}
                                 data-testid={`workflow-step-${i + 1}`}
-                                className="relative rounded-3xl bg-white p-6 shadow-soft ring-1 ring-yamet-teal/10 transition-shadow hover:shadow-glow"
+                                className="relative rounded-2xl border border-yamet-ink/10 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-yamet-teal/40 hover:shadow-soft"
                             >
                                 <div className="flex items-center gap-3">
-                                    <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-yamet-teal text-white shadow-md">
+                                    <div className="relative flex h-14 w-14 items-center justify-center rounded-xl bg-yamet-teal text-white">
                                         <Icon className="h-6 w-6" />
                                         <div className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-yamet-peach text-[10px] font-extrabold text-yamet-ink ring-2 ring-white">
                                             {s.n}

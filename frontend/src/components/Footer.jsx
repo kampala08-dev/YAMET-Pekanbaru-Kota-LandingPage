@@ -16,7 +16,7 @@ export default function Footer() {
         <footer data-testid="site-footer" className="relative border-t border-yamet-teal/10 bg-white pt-14 pb-8">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 lg:grid-cols-12 lg:gap-8 lg:px-8">
                 <div className="lg:col-span-5">
-                    <Logo />
+                    <Logo className="h-14" />
                     <p className="mt-4 max-w-sm text-sm leading-relaxed text-yamet-ink-muted">
                         Pusat tumbuh kembang anak yang hangat dan terpercaya di Palembang. Kami
                         mendampingi anak Anda mencapai potensi terbaiknya melalui intervensi dini.

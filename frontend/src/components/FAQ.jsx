@@ -10,23 +10,23 @@ import {
 const FAQS = [
     {
         q: "Usia berapa anak sudah bisa mulai terapi?",
-        a: "Terapi di YAMET dapat dimulai sejak dini, bahkan untuk bayi yang terdeteksi memiliki keterlambatan perkembangan. Semakin dini intervensi dilakukan, semakin baik hasilnya. Kami melayani anak dari usia 0 bulan sampai usia sekolah.",
+        a: "YAMET melayani anak dari usia 0 hingga 15 tahun. Terapi dapat dimulai sejak dini — bahkan untuk bayi yang terdeteksi mengalami keterlambatan perkembangan. Semakin dini intervensi dilakukan, semakin optimal hasilnya bagi tumbuh kembang si kecil.",
     },
     {
         q: "Berapa durasi dan frekuensi sesi terapinya?",
-        a: "Umumnya satu sesi terapi berlangsung 45–60 menit. Frekuensi sesi ditentukan setelah asesmen awal berdasarkan kebutuhan anak — bisa 1–3 kali per minggu, dan akan dievaluasi secara berkala.",
+        a: "Setiap sesi berlangsung 60 menit — terdiri dari 50 menit terapi bersama anak dan 10 menit laporan kepada orang tua, sehingga Anda selalu memahami perkembangan serta aktivitas yang dilakukan si kecil. Frekuensi sesi ditentukan berdasarkan kebutuhan anak setelah observasi & asesmen awal.",
     },
     {
         q: "Apakah perlu rujukan dari dokter?",
-        a: "Tidak wajib. Anda dapat langsung datang untuk konsultasi awal. Namun, jika sudah memiliki hasil pemeriksaan dokter spesialis anak atau psikiater, kami akan dengan senang hati menjadikan itu sebagai referensi tambahan.",
+        a: "Tidak wajib. Anda dapat langsung datang untuk konsultasi awal. Namun, jika sudah memiliki hasil pemeriksaan dokter spesialis anak atau psikiater, kami akan dengan senang hati menjadikannya sebagai referensi tambahan untuk mendukung program terapi anak.",
     },
     {
         q: "Bagaimana cara mendaftar?",
-        a: "Cukup hubungi WhatsApp kami untuk konsultasi gratis. Tim YAMET akan membantu menjadwalkan asesmen awal sesuai ketersediaan Anda.",
+        a: "Cukup hubungi WhatsApp kami untuk konsultasi. Tim YAMET akan membantu menjadwalkan observasi & asesmen awal sesuai ketersediaan Anda, lalu menjelaskan langkah-langkah selanjutnya dengan ramah dan jelas.",
     },
     {
         q: "Berapa estimasi biaya dan paketnya?",
-        a: "Biaya disesuaikan dengan jenis layanan dan jumlah sesi. Kami memiliki paket fleksibel — mulai dari asesmen awal, sesi terapi reguler, hingga paket bulanan. Hubungi kami via WhatsApp untuk informasi paket terbaru.",
+        a: "Biaya disesuaikan dengan jenis terapi yang dibutuhkan dan jumlah sesi per bulan, sehingga fleksibel mengikuti kebutuhan dan kondisi setiap anak. Untuk informasi paket dan biaya terbaru, silakan hubungi kami via WhatsApp — tim YAMET akan dengan senang hati membantu.",
     },
 ];
 
@@ -48,7 +48,7 @@ export default function FAQ() {
                     <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
                         Pertanyaan Umum
                     </div>
-                    <h2 className="mt-5 font-heading text-3xl font-extrabold tracking-tight text-yamet-ink sm:text-4xl lg:text-5xl">
+                    <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Hal yang sering{" "}
                         <span className="text-yamet-teal">ditanyakan orang tua.</span>
                     </h2>
@@ -59,14 +59,14 @@ export default function FAQ() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="mt-12 rounded-3xl bg-white p-3 shadow-soft ring-1 ring-yamet-teal/10 sm:p-5"
+                    className="mt-12 rounded-2xl border border-yamet-ink/10 bg-white p-3 shadow-soft sm:p-5"
                 >
                     <Accordion type="single" collapsible className="w-full" data-testid="faq-accordion">
                         {FAQS.map((f, i) => (
                             <AccordionItem
                                 key={i}
                                 value={`item-${i}`}
-                                className="border-b border-yamet-teal/10 last:border-0"
+                                className="border-b border-yamet-ink/10 last:border-0"
                                 data-testid={`faq-item-${i}`}
                             >
                                 <AccordionTrigger

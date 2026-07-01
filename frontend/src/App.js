@@ -1,9 +1,11 @@
 import "@/App.css";
+import "lenis/dist/lenis.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
+import useLenis from "@/hooks/useLenis";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Timeline from "@/components/Timeline";
+import GrowthJourney from "@/components/GrowthJourney";
 import Services from "@/components/Services";
 import WhyYamet from "@/components/WhyYamet";
 import Conditions from "@/components/Conditions";
@@ -21,7 +23,7 @@ function Landing() {
             <Navbar />
             <main>
                 <Hero />
-                <Timeline />
+                <GrowthJourney />
                 <Services />
                 <WhyYamet />
                 <Conditions />
@@ -39,6 +41,7 @@ function Landing() {
 }
 
 function App() {
+    useLenis();
     return (
         <div className="App">
             <BrowserRouter>

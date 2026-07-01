@@ -6,7 +6,7 @@ const POINTS = [
     {
         icon: ClipboardList,
         title: "Asesmen menyeluruh & program individual",
-        desc: "Setiap anak dimulai dengan asesmen mendalam — programnya disusun khusus untuk kebutuhannya.",
+        desc: "Setiap anak dimulai dengan observasi & asesmen mendalam — programnya disusun khusus untuk kebutuhannya.",
     },
     {
         icon: Users,
@@ -50,11 +50,11 @@ export default function WhyYamet() {
                         <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
                             Mengapa YAMET
                         </div>
-                        <h2 className="mt-5 font-heading text-3xl font-extrabold leading-tight text-yamet-ink sm:text-4xl lg:text-5xl">
+                        <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
                             Bukan sekadar terapi.
                             <span className="block text-yamet-teal">Pendampingan yang penuh hati.</span>
                         </h2>
-                        <p className="mt-5 max-w-md text-base leading-relaxed text-yamet-ink-muted sm:text-lg">
+                        <p className="mt-6 max-w-md text-base leading-relaxed text-yamet-ink-muted sm:text-lg">
                             Kami percaya intervensi dini yang dilakukan dengan sabar, terstruktur,
                             dan hangat akan membuka pintu terbaik untuk masa depan anak Anda.
                         </p>
@@ -70,12 +70,11 @@ export default function WhyYamet() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ duration: 0.5, delay: i * 0.07 }}
-                                    whileHover={{ y: -4 }}
                                     data-testid={`why-point-${i}`}
-                                    className="group rounded-3xl bg-white p-5 shadow-soft ring-1 ring-yamet-teal/10 transition-shadow hover:shadow-glow"
+                                    className="group rounded-2xl border border-yamet-ink/10 bg-white p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-yamet-teal/40 hover:shadow-soft"
                                 >
                                     <div className="flex items-start gap-4">
-                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-yamet-teal-50 text-yamet-teal transition-transform group-hover:scale-110 group-hover:rotate-3">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-yamet-teal text-white transition-transform group-hover:scale-105">
                                             <Icon className="h-6 w-6" />
                                         </span>
                                         <div>

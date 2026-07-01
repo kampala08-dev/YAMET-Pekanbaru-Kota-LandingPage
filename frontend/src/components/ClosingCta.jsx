@@ -36,7 +36,7 @@ export default function ClosingCta() {
                         <Heart className="h-8 w-8 text-yamet-peach" fill="currentColor" />
                     </motion.div>
 
-                    <h2 className="relative font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+                    <h2 className="relative font-heading text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
                         Mulai perjalanan tumbuh kembang
                         <span className="block text-yamet-peach">anak Anda hari ini.</span>
                     </h2>
@@ -55,7 +55,7 @@ export default function ClosingCta() {
                         className="relative mt-8 inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-extrabold text-yamet-teal shadow-xl transition-shadow hover:shadow-2xl sm:text-lg"
                     >
                         <MessageCircle className="h-5 w-5" />
-                        Konsultasi Gratis via WhatsApp
+                        Konsultasi via WhatsApp
                     </motion.a>
                 </motion.div>
             </div>

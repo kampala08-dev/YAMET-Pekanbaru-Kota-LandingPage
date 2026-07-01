@@ -64,6 +64,13 @@ module.exports = {
                     "ink-muted": "#5B707B",
                 },
                 whatsapp: "#25D366",
+                /* YAMET logo brand primaries (used as accents) */
+                brand: {
+                    red: "#E8462A",
+                    yellow: "#F4C20D",
+                    green: "#4CAF3E",
+                    blue: "#2E80C9",
+                },
             },
             keyframes: {
                 "accordion-down": {

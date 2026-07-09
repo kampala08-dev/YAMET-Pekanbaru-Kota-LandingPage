@@ -102,7 +102,7 @@ export default function Contact() {
                                         onChange={handle("parent_name")}
                                         data-testid="form-parent-name"
                                         placeholder="Misal: Ibu Siti"
-                                        className="mt-1.5 block w-full rounded-2xl border border-yamet-teal/15 bg-yamet-cream/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/60 outline-none transition-all focus:border-yamet-teal focus:bg-white focus:ring-2 focus:ring-yamet-teal/20"
+                                        className="mt-1.5 block w-full rounded-2xl border border-yamet-teal/15 bg-yamet-teal-50/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/60 outline-none transition-all focus:border-yamet-teal focus:bg-white focus:ring-2 focus:ring-yamet-teal/20"
                                     />
                                 </div>
                                 <div>
@@ -117,7 +117,7 @@ export default function Contact() {
                                         onChange={handle("whatsapp")}
                                         data-testid="form-whatsapp"
                                         placeholder="08xxxxxxxxxx"
-                                        className="mt-1.5 block w-full rounded-2xl border border-yamet-teal/15 bg-yamet-cream/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/60 outline-none transition-all focus:border-yamet-teal focus:bg-white focus:ring-2 focus:ring-yamet-teal/20"
+                                        className="mt-1.5 block w-full rounded-2xl border border-yamet-teal/15 bg-yamet-teal-50/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/60 outline-none transition-all focus:border-yamet-teal focus:bg-white focus:ring-2 focus:ring-yamet-teal/20"
                                     />
                                 </div>
                                 <div className="sm:col-span-2">
@@ -131,7 +131,7 @@ export default function Contact() {
                                         onChange={handle("child_age")}
                                         data-testid="form-child-age"
                                         placeholder="Misal: 2 tahun 6 bulan"
-                                        className="mt-1.5 block w-full rounded-2xl border border-yamet-teal/15 bg-yamet-cream/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/60 outline-none transition-all focus:border-yamet-teal focus:bg-white focus:ring-2 focus:ring-yamet-teal/20"
+                                        className="mt-1.5 block w-full rounded-2xl border border-yamet-teal/15 bg-yamet-teal-50/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/60 outline-none transition-all focus:border-yamet-teal focus:bg-white focus:ring-2 focus:ring-yamet-teal/20"
                                     />
                                 </div>
                                 <div className="sm:col-span-2">
@@ -146,7 +146,7 @@ export default function Contact() {
                                         onChange={handle("concern")}
                                         data-testid="form-concern"
                                         placeholder="Ceritakan singkat kondisi anak atau kebutuhan terapinya..."
-                                        className="mt-1.5 block w-full resize-none rounded-2xl border border-yamet-teal/15 bg-yamet-cream/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/60 outline-none transition-all focus:border-yamet-teal focus:bg-white focus:ring-2 focus:ring-yamet-teal/20"
+                                        className="mt-1.5 block w-full resize-none rounded-2xl border border-yamet-teal/15 bg-yamet-teal-50/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/60 outline-none transition-all focus:border-yamet-teal focus:bg-white focus:ring-2 focus:ring-yamet-teal/20"
                                     />
                                 </div>
                             </div>
@@ -195,7 +195,7 @@ export default function Contact() {
                     >
                         <div className="rounded-[28px] bg-white p-6 border border-yamet-ink/10 shadow-soft sm:p-8">
                             <h3 className="font-heading text-lg font-extrabold text-yamet-ink">
-                                YAMET Palembang Dempo
+                                YAMET Pekanbaru Kota
                             </h3>
                             <ul className="mt-5 space-y-4 text-sm">
                                 <li className="flex items-start gap-3">
@@ -276,7 +276,7 @@ export default function Contact() {
                         >
                             <iframe
                                 src={MAPS_EMBED_URL}
-                                title="Peta YAMET Palembang Dempo"
+                                title="Peta YAMET Pekanbaru Kota"
                                 width="100%"
                                 height="280"
                                 style={{ border: 0 }}

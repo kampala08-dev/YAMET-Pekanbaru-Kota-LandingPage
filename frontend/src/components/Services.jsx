@@ -1,23 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MessageSquare, Activity, HandHelping, Brain, Blocks, Star, ListChecks, Lightbulb, ArrowUpRight } from "lucide-react";
+import { MessageSquare, Activity, HandHelping, Brain, Blocks, Star, ListChecks, ArrowUpRight } from "lucide-react";
 import { waLink } from "../data/site";
 
 const SERVICES = [
-    { id: "sensori", n: "01", icon: Blocks, title: "Terapi Sensori Integrasi", desc: "Membantu anak mengolah informasi sensorik — gerak, sentuh, dan keseimbangan — agar lebih fokus, tenang, dan siap belajar.", color: "blue" },
-    { id: "aba", n: "02", icon: Star, title: "Terapi Perilaku ABA VB", desc: "Pendekatan ABA & Verbal Behavior untuk membangun perilaku positif, kemandirian, dan kemampuan komunikasi anak.", color: "green" },
-    { id: "wicara", n: "03", icon: MessageSquare, title: "Terapi Wicara", desc: "Membantu kemampuan bicara, bahasa, dan komunikasi — termasuk speech delay dan gangguan artikulasi.", color: "red" },
-    { id: "okupasi", n: "04", icon: HandHelping, title: "Terapi Okupasi", desc: "Mengasah motorik halus, sensori, dan kemandirian sehari-hari — makan, berpakaian, hingga fokus belajar.", color: "yellow" },
-    { id: "fisioterapi", n: "05", icon: Activity, title: "Fisioterapi", desc: "Melatih kekuatan, koordinasi, dan motorik kasar agar anak bergerak lebih percaya diri.", color: "blue" },
-    { id: "braingym", n: "06", icon: Brain, title: "Brain Gym", desc: "Gerakan sederhana yang menstimulasi otak untuk meningkatkan fokus, koordinasi, dan kesiapan belajar anak.", color: "green" },
-    { id: "executive", n: "07", icon: ListChecks, title: "Executive Function", desc: "Melatih kemampuan merencanakan, mengatur, fokus, dan mengendalikan diri yang penting untuk belajar & keseharian.", color: "red" },
-    { id: "cbt", n: "08", icon: Lightbulb, title: "Cognitive Behavioral Therapy", desc: "Membantu anak mengenali dan mengelola pikiran serta emosinya (CBT) agar lebih percaya diri dan adaptif.", color: "yellow" },
+    { id: "perilaku", n: "01", icon: Star, title: "Terapi Perilaku (Behaviour Therapy)", desc: "Pendekatan behaviour therapy (ABA) untuk membangun perilaku positif, kemandirian, dan kemampuan komunikasi anak.", color: "green" },
+    { id: "okupasi", n: "02", icon: HandHelping, title: "Terapi Okupasi", desc: "Mengasah motorik halus, sensori, dan kemandirian sehari-hari — makan, berpakaian, hingga fokus belajar.", color: "orange" },
+    { id: "wicara", n: "03", icon: MessageSquare, title: "Terapi Wicara", desc: "Membantu kemampuan bicara, bahasa, dan komunikasi — termasuk speech delay dan gangguan artikulasi.", color: "teal" },
+    { id: "sensori", n: "04", icon: Blocks, title: "Sensori Integrasi", desc: "Membantu anak mengolah informasi sensorik — gerak, sentuh, dan keseimbangan — agar lebih fokus, tenang, dan siap belajar.", color: "yellow" },
+    { id: "fisioterapi", n: "05", icon: Activity, title: "Fisioterapi", desc: "Melatih kekuatan, koordinasi, dan motorik kasar agar anak bergerak lebih percaya diri.", color: "green" },
+    { id: "braingym", n: "06", icon: Brain, title: "Brain Gym", desc: "Gerakan sederhana yang menstimulasi otak untuk meningkatkan fokus, koordinasi, dan kesiapan belajar anak.", color: "orange" },
+    { id: "remedial", n: "07", icon: ListChecks, title: "Remedial", desc: "Pendampingan belajar untuk menguatkan kemampuan akademik dasar — membaca, menulis, dan berhitung — sesuai kecepatan anak.", color: "teal" },
 ];
 
 const C = {
-    blue: { icon: "bg-brand-blue text-white", num: "text-brand-blue/10", link: "text-brand-blue", hover: "hover:border-brand-blue/40" },
+    teal: { icon: "bg-yamet-teal text-white", num: "text-yamet-teal/10", link: "text-yamet-teal", hover: "hover:border-yamet-teal/40" },
     green: { icon: "bg-brand-green text-white", num: "text-brand-green/10", link: "text-brand-green", hover: "hover:border-brand-green/40" },
-    red: { icon: "bg-brand-red text-white", num: "text-brand-red/10", link: "text-brand-red", hover: "hover:border-brand-red/40" },
+    orange: { icon: "bg-brand-orange text-white", num: "text-brand-orange/10", link: "text-brand-orange", hover: "hover:border-brand-orange/40" },
     yellow: { icon: "bg-brand-yellow text-yamet-ink", num: "text-brand-yellow/25", link: "text-yamet-ink", hover: "hover:border-brand-yellow/50" },
 };
 

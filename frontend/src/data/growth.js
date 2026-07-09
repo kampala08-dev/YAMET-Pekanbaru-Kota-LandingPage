@@ -1,4 +1,4 @@
-// Growth journey data for YAMET Dempo — adapted from the Denver II Developmental
+// Growth journey data for YAMET Pekanbaru Kota — adapted from the Denver II Developmental
 // Screening Test (0-5 years). Central visual ("Bilal") changes per age on scroll.
 // Photos generated via Higgsfield (Nano Banana 2), served from CDN.
 

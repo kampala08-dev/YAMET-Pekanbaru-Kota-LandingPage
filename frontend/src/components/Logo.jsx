@@ -10,7 +10,7 @@ export default function Logo({ className = "h-9", showTagline = false }) {
         return (
             <img
                 src="/logo-yamet.png"
-                alt="YAMET — Child Development Center Palembang"
+                alt="YAMET — Child Development Center Pekanbaru"
                 className={`${className} w-auto select-none`}
                 draggable="false"
                 onError={() => setImgOk(false)}
@@ -37,11 +37,11 @@ export default function Logo({ className = "h-9", showTagline = false }) {
                 </div>
                 {showTagline ? (
                     <div className="text-[10px] font-semibold uppercase tracking-widest text-yamet-ink-muted">
-                        Palembang Dempo
+                        Pekanbaru Kota
                     </div>
                 ) : (
                     <div className="text-[10px] font-semibold uppercase tracking-widest text-yamet-teal/80">
-                        Palembang Dempo
+                        Pekanbaru Kota
                     </div>
                 )}
             </div>

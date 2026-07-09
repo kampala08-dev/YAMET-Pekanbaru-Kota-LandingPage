@@ -61,6 +61,10 @@ let webpackConfig = {
 };
 
 webpackConfig.devServer = (devServerConfig) => {
+  // Izinkan akses via tunnel/preview host (cloudflared, ngrok, localtunnel, LAN IP).
+  // Aman untuk dev server yang dipakai berbagi preview.
+  devServerConfig.allowedHosts = "all";
+
   // Add health check endpoints if enabled
   if (config.enableHealthCheck && setupHealthEndpoints && healthPluginInstance) {
     const originalSetupMiddlewares = devServerConfig.setupMiddlewares;

@@ -18,7 +18,7 @@ export default function Footer() {
                 <div className="lg:col-span-5">
                     <Logo className="h-14" />
                     <p className="mt-4 max-w-sm text-sm leading-relaxed text-yamet-ink-muted">
-                        Pusat tumbuh kembang anak yang hangat dan terpercaya di Palembang. Kami
+                        Pusat tumbuh kembang anak yang hangat dan terpercaya di Pekanbaru. Kami
                         mendampingi anak Anda mencapai potensi terbaiknya melalui intervensi dini.
                     </p>
                     <div className="mt-5 flex items-center gap-2">
@@ -27,7 +27,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="footer-instagram"
-                            aria-label="Instagram YAMET Palembang"
+                            aria-label="Instagram YAMET Pekanbaru"
                             className="flex h-10 w-10 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal transition-all hover:-translate-y-0.5 hover:bg-yamet-teal hover:text-white"
                         >
                             <Instagram className="h-4 w-4" />
@@ -37,7 +37,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="footer-whatsapp"
-                            aria-label="WhatsApp YAMET Palembang"
+                            aria-label="WhatsApp YAMET Pekanbaru"
                             className="flex h-10 w-10 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal transition-all hover:-translate-y-0.5 hover:bg-whatsapp hover:text-white"
                         >
                             <Phone className="h-4 w-4" />
@@ -101,7 +101,7 @@ export default function Footer() {
 
             <div className="mx-auto mt-12 max-w-7xl border-t border-yamet-teal/10 px-5 pt-6 lg:px-8">
                 <p className="text-center text-xs text-yamet-ink-muted">
-                    © {year} YAMET Palembang Dempo. Semua hak dilindungi.
+                    © {year} YAMET Pekanbaru Kota. Semua hak dilindungi.
                 </p>
             </div>
         </footer>

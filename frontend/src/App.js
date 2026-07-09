@@ -19,7 +19,7 @@ import FloatingWhatsapp from "@/components/FloatingWhatsapp";
 
 function Landing() {
     return (
-        <div className="min-h-screen bg-yamet-cream text-yamet-ink" data-testid="landing-root">
+        <div className="min-h-screen bg-yamet-mist text-yamet-ink" data-testid="landing-root">
             <Navbar />
             <main>
                 <Hero />

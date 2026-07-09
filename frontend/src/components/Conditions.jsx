@@ -26,6 +26,18 @@ const CONDITIONS = [
         title: "Kesulitan fokus & perilaku",
         desc: "Anak sulit memusatkan perhatian, mudah teralihkan, atau menunjukkan emosi yang sulit dikendalikan. Pendekatan perilaku dan dukungan psikologis membantunya menjadi lebih fokus, tenang, dan adaptif.",
     },
+    {
+        title: "ADHD",
+        desc: "Anak sangat aktif, impulsif, dan sulit memusatkan perhatian dalam waktu lama (Attention-Deficit/Hyperactivity Disorder). Lewat terapi perilaku dan latihan fokus yang terstruktur, anak dibimbing agar lebih tenang, terarah, dan mampu mengikuti aktivitas sehari-hari.",
+    },
+    {
+        title: "Cerebral Palsy",
+        desc: "Gangguan gerak dan postur akibat perkembangan otak yang memengaruhi kontrol otot. Fisioterapi dan terapi okupasi rutin membantu melatih kekuatan, koordinasi, keseimbangan, serta kemandirian anak dalam beraktivitas.",
+    },
+    {
+        title: "Down Syndrome",
+        desc: "Kondisi genetik yang memengaruhi tumbuh kembang dan kemampuan belajar anak. Melalui terapi wicara, okupasi, fisioterapi, dan stimulasi dini yang konsisten, potensi anak dioptimalkan tahap demi tahap.",
+    },
 ];
 
 // Brand-color accents, cycled across the condition cards.

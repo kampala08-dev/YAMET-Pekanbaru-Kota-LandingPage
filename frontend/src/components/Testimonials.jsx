@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight, Star, ExternalLink } from "lucide-react";
-import { GOOGLE_REVIEW_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "../data/site";
+import { GOOGLE_REVIEW_URL } from "../data/site";
 
-// Ulasan asli orang tua dari Google Maps (rating 5,0 · 127 ulasan).
-// Diedit ringan untuk keterbacaan; makna & nada tetap sesuai aslinya.
+// Ulasan orang tua (kartu klik → tautan Google di data/site.js).
+// Label "Google" & jumlah ulasan sengaja tidak ditampilkan.
 const TESTIMONIALS = [
     {
         id: "t1",
@@ -49,18 +49,6 @@ const TESTIMONIALS = [
         parent: "Septiani Wulandary",
     },
     {
-        id: "t8",
-        quote:
-            "Rumah terapi untuk ABK ternyaman di Palembang. Ruang tunggu untuk orang tua besar, full AC, terapisnya care banget sama muridnya. Yang paling utama, setiap ruangan terapi full CCTV jadi kami orang tua tetap bisa memantau ❤️. Sukses untuk Yamet!",
-        parent: "Imelda Rohman",
-    },
-    {
-        id: "t9",
-        quote:
-            "Terima kasih Yamet Palembang, terkhusus dokter & tim yang terlibat. Hampir 1 bulan anak kami terapi di sini, cukup banyak perubahan positif untuk tumbuh kembangnya.",
-        parent: "Tri Mulia Franchika",
-    },
-    {
         id: "t10",
         quote:
             "Makasih, dokter dan perawatnya care banget sama anak saya. Info yang diberikan jelas dan simpel untuk kami. Terima kasih Yamet, semoga ada perkembangan lebih signifikan untuk anak saya.",
@@ -79,22 +67,10 @@ const TESTIMONIALS = [
         parent: "Friska Nanda Indriani",
     },
     {
-        id: "t13",
-        quote:
-            "Anak saya terapi di sini dari awal Yamet buka di Palembang sampai sekarang. Alhamdulillah sejauh ini sudah banyak perkembangannya.",
-        parent: "Rani Nurdiana",
-    },
-    {
         id: "t14",
         quote:
             "Tempat terapi anak terbaik. Pelayanan terapisnya ramah dan baik.",
         parent: "Julekak Pekak",
-    },
-    {
-        id: "t15",
-        quote:
-            "Rekomendasi tempat terapi yang bagus untuk anak di Palembang — melayani terapi SI, ABA, preschool skills, dan lainnya.",
-        parent: "Bunda Davi",
     },
 ];
 
@@ -142,31 +118,25 @@ export default function Testimonials() {
                         <span className="text-yamet-teal">jadi semangat kami.</span>
                     </h2>
 
-                    {/* Google rating badge */}
-                    <a
-                        href={GOOGLE_REVIEW_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-testid="testimonials-google-rating"
-                        className="mt-6 inline-flex items-center gap-3 rounded-full border border-yamet-ink/10 bg-white px-5 py-2.5 shadow-soft transition-all hover:-translate-y-0.5 hover:shadow-md"
-                    >
-                        <span className="font-heading text-2xl font-black text-yamet-ink">{GOOGLE_RATING}</span>
-                        <span className="flex flex-col items-start leading-tight">
-                            <Stars className="h-3.5 w-3.5" />
-                            <span className="mt-0.5 text-xs font-semibold text-yamet-ink-muted">
-                                {GOOGLE_REVIEW_COUNT} ulasan di Google
-                            </span>
+                    {/* Rating bintang (tanpa label Google / jumlah ulasan) */}
+                    <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-yamet-ink/10 bg-white px-5 py-2.5 shadow-soft">
+                        <Stars className="h-4 w-4" />
+                        <span className="text-xs font-semibold text-yamet-ink-muted">
+                            Dipercaya banyak orang tua
                         </span>
-                    </a>
+                    </div>
                 </motion.div>
 
                 <div className="relative mt-12">
-                    <motion.div
+                    <motion.a
                         key={idx}
+                        href={GOOGLE_REVIEW_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="relative mx-auto max-w-3xl rounded-[28px] border border-yamet-ink/10 bg-white p-8 shadow-soft sm:p-12"
+                        className="relative mx-auto block max-w-3xl rounded-[28px] border border-yamet-ink/10 bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal/40 hover:shadow-md sm:p-12"
                         data-testid={`testimonial-card-${idx}`}
                     >
                         <div className="flex items-center justify-between">
@@ -185,11 +155,11 @@ export default function Testimonials() {
                                     {TESTIMONIALS[idx].parent}
                                 </div>
                                 <div className="text-xs text-yamet-ink-muted">
-                                    Orang tua · Ulasan Google
+                                    Orang tua
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </motion.a>
 
                     <div className="mt-8 flex items-center justify-center gap-3">
                         <button
@@ -224,10 +194,10 @@ export default function Testimonials() {
                             href={GOOGLE_REVIEW_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            data-testid="testimonials-google-link"
+                            data-testid="testimonials-more-link"
                             className="inline-flex items-center gap-2 rounded-full border-2 border-yamet-teal/30 bg-white px-6 py-3 text-sm font-bold text-yamet-teal transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal hover:shadow-soft"
                         >
-                            Lihat semua {GOOGLE_REVIEW_COUNT} ulasan di Google
+                            Lihat Ulasan Lainnya
                             <ExternalLink className="h-4 w-4" />
                         </a>
                     </div>

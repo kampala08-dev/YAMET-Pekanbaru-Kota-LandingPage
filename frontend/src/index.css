@@ -10,7 +10,7 @@
 body {
     margin: 0;
     font-family: var(--font-body);
-    background: #FDFBF7;
+    background: #E8F6F1;
     color: #1F333E;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -27,26 +27,26 @@ html {
 
 @layer base {
     :root {
-        /* YAMET light theme — soft teal & peach */
-        --background: 36 50% 98%;            /* #FDFBF7 */
+        /* YAMET light theme — seafoam mint (match feed IG, Pekanbaru Kota) */
+        --background: 159 44% 94%;           /* #E8F6F1 mint */
         --foreground: 205 33% 18%;           /* #1F333E */
         --card: 0 0% 100%;
         --card-foreground: 205 33% 18%;
         --popover: 0 0% 100%;
         --popover-foreground: 205 33% 18%;
-        --primary: 188 41% 39%;              /* #3A868F teal */
+        --primary: 173 65% 35%;              /* #1F9385 seafoam teal */
         --primary-foreground: 0 0% 100%;
-        --secondary: 192 53% 92%;            /* #E3F2F6 */
-        --secondary-foreground: 188 41% 25%;
+        --secondary: 165 50% 92%;            /* #E1F5F0 */
+        --secondary-foreground: 173 60% 22%;
         --muted: 200 20% 96%;
         --muted-foreground: 200 14% 42%;     /* #5B707B */
-        --accent: 12 100% 83%;               /* #FFB5A7 peach */
+        --accent: 25 100% 82%;               /* #FFC9A3 warm peach */
         --accent-foreground: 205 33% 18%;
         --destructive: 0 70% 55%;
         --destructive-foreground: 0 0% 100%;
         --border: 200 18% 92%;               /* #E5EBEF */
         --input: 200 18% 92%;
-        --ring: 188 41% 39%;
+        --ring: 173 65% 35%;
         --radius: 1rem;
     }
 }
@@ -124,19 +124,19 @@ html {
 
 /* Sticky timeline rail draw */
 .timeline-rail {
-    background: linear-gradient(180deg, #3A868F 0%, #5BA9B3 50%, #FFB5A7 100%);
+    background: linear-gradient(180deg, #1F9385 0%, #7CCCBE 50%, #FFC9A3 100%);
 }
 
 /* Smooth focus rings (accessibility) */
 *:focus-visible {
-    outline: 2px solid #3A868F;
+    outline: 2px solid #1F9385;
     outline-offset: 3px;
     border-radius: 6px;
 }
 
 /* Selection */
 ::selection {
-    background: #FFB5A7;
+    background: #FFC9A3;
     color: #1F333E;
 }
 

@@ -1,9 +1,12 @@
-// Site-wide constants for YAMET Palembang Dempo
+// Site-wide constants for YAMET Pekanbaru Kota
 
-export const WHATSAPP_NUMBER = "6281288080896";
+export const WHATSAPP_NUMBER = "6281374999954";
+
+// Nomor untuk ditampilkan (format lokal)
+export const PHONE_DISPLAY = "0813-7499-9954";
 
 export const WA_DEFAULT_MESSAGE =
-    "Halo YAMET Palembang Dempo, saya ingin berkonsultasi mengenai tumbuh kembang anak saya.";
+    "Halo YAMET Pekanbaru Kota, saya ingin berkonsultasi mengenai tumbuh kembang anak saya.";
 
 export const waLink = (message = WA_DEFAULT_MESSAGE) =>
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -18,7 +21,7 @@ export const NAV_LINKS = [
 ];
 
 export const ADDRESS =
-    "Jl. Dempo Luar No.558, 17 Ilir, Kec. Ilir Tim. I, Kota Palembang, Sumatera Selatan 30125";
+    "Jl. Taskurun Gg. Cempedak III Ruko No.15 A, Wonorejo, Marpoyan Damai, Kota Pekanbaru, Riau 28125";
 
 export const OPENING_HOURS = [
     { day: "Minggu", hours: "Tutup", closed: true },
@@ -30,17 +33,17 @@ export const OPENING_HOURS = [
     { day: "Sabtu", hours: "08.00 – 15.00" },
 ];
 
-export const INSTAGRAM_HANDLE = "@yametpalembang";
-export const INSTAGRAM_URL = "https://instagram.com/yametpalembang";
+export const INSTAGRAM_HANDLE = "@yametpekanbaru.kota";
+export const INSTAGRAM_URL = "https://instagram.com/yametpekanbaru.kota";
 
 // Direct ke tempat YAMET (bukan query alamat teks). Embed pakai nama bisnis
 // + koordinat asli; tautan pakai short-link resmi Google Maps.
 export const MAPS_EMBED_URL =
-    "https://www.google.com/maps?q=YAMET+Child+Development+Center+Palembang&center=-2.9812891,104.7591358&z=16&output=embed";
+    "https://www.google.com/maps?q=Yamet+CDC+Pekanbaru+Kota&center=0.5075083,101.4456889&z=16&output=embed";
 
-export const MAPS_LINK = "https://maps.app.goo.gl/Dw8MyZpjp7bq1xmG9";
+// Semua tautan alamat & ulasan mengarah ke link Google resmi berikut.
+export const MAPS_LINK = "https://share.google/iXTVJMxxyj5ObNQoe";
 
-// Google Business / Maps reviews
-export const GOOGLE_REVIEW_URL = "https://maps.app.goo.gl/Dw8MyZpjp7bq1xmG9";
-export const GOOGLE_RATING = "5,0";
-export const GOOGLE_REVIEW_COUNT = 127;
+// Google Business / Maps reviews (label "Google" & jumlah ulasan tidak ditampilkan
+// di UI — data lama Palembang; tautan tetap mengarah ke Google saat diklik).
+export const GOOGLE_REVIEW_URL = "https://share.google/iXTVJMxxyj5ObNQoe";

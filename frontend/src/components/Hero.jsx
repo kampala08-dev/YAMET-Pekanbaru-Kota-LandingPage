@@ -36,7 +36,7 @@ function HeroCopy() {
                 data-testid="hero-eyebrow"
             >
                 <Sparkles className="h-3.5 w-3.5" />
-                Pusat Tumbuh Kembang Anak — Palembang Dempo
+                Pusat Tumbuh Kembang Anak — Pekanbaru Kota
             </motion.div>
 
             <motion.h1
@@ -168,11 +168,11 @@ export default function Hero() {
                 {/* legibility scrims */}
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-r from-yamet-cream via-yamet-cream/80 to-transparent"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-r from-yamet-mist via-yamet-mist/80 to-transparent"
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-yamet-cream to-transparent"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-yamet-mist to-transparent"
                 />
 
                 <div className="relative z-10 mx-auto w-full max-w-7xl px-5 lg:px-8">
@@ -224,7 +224,7 @@ export default function Hero() {
                             <div aria-hidden="true" className="absolute right-12 bottom-28 h-6 w-6 rounded-full bg-brand-green/50" />
                             <img
                                 src="/u-4-tahun.webp"
-                                alt="Anak ceria di YAMET Palembang"
+                                alt="Anak ceria di YAMET Pekanbaru"
                                 className="relative z-10 h-[97%] w-auto object-contain drop-shadow-2xl"
                                 loading="eager"
                             />

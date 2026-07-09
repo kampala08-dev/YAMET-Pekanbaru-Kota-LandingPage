@@ -1,4 +1,4 @@
-"""Backend API tests for YAMET Palembang Dempo landing page."""
+"""Backend API tests for YAMET Pekanbaru Kota landing page."""
 import os
 import pytest
 import requests
@@ -28,7 +28,7 @@ class TestRoot:
         r = client.get(f"{API}/")
         assert r.status_code == 200, r.text
         data = r.json()
-        assert data.get("message") == "YAMET Palembang Dempo API"
+        assert data.get("message") == "YAMET Pekanbaru Kota API"
 
 
 # ---------- Leads CRUD ----------

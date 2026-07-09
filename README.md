@@ -1,20 +1,22 @@
-# YAMET Palembang Dempo — Landing Page
+# YAMET Pekanbaru Kota — Landing Page
 
-Landing page interaktif untuk **YAMET Child Development Center — Palembang Dempo**, pusat tumbuh kembang & terapi anak. Dibangun untuk membantu orang tua mengenali kebutuhan si kecil dan mengajak mereka berkonsultasi lewat WhatsApp.
+Landing page interaktif untuk **YAMET Child Development Center — Pekanbaru Kota**, pusat tumbuh kembang & terapi anak. Dibangun untuk membantu orang tua mengenali kebutuhan si kecil dan mengajak mereka berkonsultasi lewat WhatsApp.
 
-> ⭐ 5,0 dari 127 ulasan Google · Jl. Dempo Luar No.558, 17 Ilir, Palembang
+> 📍 Jl. Taskurun Gg. Cempedak III Ruko No.15 A, Wonorejo, Marpoyan Damai, Kota Pekanbaru, Riau 28125 · Dipercaya banyak orang tua.
 
 ---
 
 ## ✨ Fitur Utama
 
-- **Hero 3D "Ruang Sensori Integrasi"** — visualisasi WebGL (Three.js) berisi ayunan terapi, ball pit, perosotan, panjat tebing, terowongan, dll. + foto anak sebagai fokus. Bisa di-drag (inersia) & parallax mengikuti mouse. Terinspirasi craft situs seperti oryzo.ai, tapi dengan identitas hangat YAMET.
+- **Header 2 tingkat** — top bar (WhatsApp, lokasi, jam operasional, "Follow Us") yang menyusut halus saat scroll, di atas nav bar (menu + tombol **"Konsultasi Sekarang"**).
+- **Hero 3D "Ruang Sensori Integrasi"** — visualisasi WebGL (Three.js) berisi ayunan terapi, ball pit, perosotan, panjat tebing, terowongan, dll. + foto anak sebagai fokus. Bisa di-drag (inersia) & parallax mengikuti mouse.
 - **Perjalanan Tumbuh Kembang (0–5 tahun)** — journey milestone berbasis **Denver II**, foto anak yang berganti per usia, plus **panel "Stimulasi Ayah & Bunda"** (saran yang bisa dilakukan orang tua di tiap tahap). Desktop = pinned scroll, mobile = stacked.
-- **8 Jenis Layanan Terapi** — Sensori Integrasi, Perilaku ABA/VB, Wicara, Okupasi, Fisioterapi, Brain Gym, Executive Function, dan CBT.
-- **Kondisi yang Ditangani** — speech delay, autisme/ASD, gangguan artikulasi, keterlambatan tumbuh kembang, kesulitan motorik, fokus & perilaku (dengan penjelasan mendalam).
+- **7 Jenis Layanan Terapi** — Terapi Perilaku (Behaviour Therapy), Terapi Okupasi, Terapi Wicara, Sensori Integrasi, Fisioterapi, Brain Gym, dan Remedial.
+- **Kondisi yang Ditangani** — speech delay, autisme/ASD, gangguan artikulasi, keterlambatan tumbuh kembang, kesulitan motorik, kesulitan fokus & perilaku, **ADHD**, **Cerebral Palsy**, dan **Down Syndrome** (dengan penjelasan mendalam).
 - **Alur Layanan 5 langkah** — Observasi Anak → Asesmen → Program Individual → Sesi Terapi → Evaluasi.
-- **Testimoni asli** dari Google Maps + badge rating **5,0 · 127 ulasan** dengan tautan langsung.
+- **Testimoni orang tua** — kartu ulasan yang bisa diklik langsung ke halaman Google (tanpa menampilkan jumlah/atribusi ulasan).
 - **WhatsApp-first** — semua CTA mengarah ke WhatsApp, plus form lead yang tersimpan ke backend.
+- **Tema seafoam mint** — palet warna selaras dengan logo & feed Instagram (`@yametpekanbaru.kota`).
 - **Mobile-first & cepat** — gambar WebP teroptimasi, `three.js` di-*code-split* (tidak diunduh di HP), smooth scroll (Lenis) khusus desktop, hormati `prefers-reduced-motion`.
 
 ## 🛠️ Teknologi
@@ -35,12 +37,12 @@ Landing page interaktif untuk **YAMET Child Development Center — Palembang Dem
 ## 📁 Struktur Proyek
 
 ```
-YP-Dempo-LandingPage/
+YAMET-Pekanbaru-Kota-LandingPage/
 ├── frontend/                 # Aplikasi React (landing page)
 │   ├── public/               # index.html, logo, foto anak (WebP)
 │   ├── src/
 │   │   ├── App.js            # root + smooth scroll (Lenis)
-│   │   ├── components/       # Hero, SensoryRoom3D, GrowthJourney, Services, dll.
+│   │   ├── components/       # Navbar, Hero, SensoryRoom3D, GrowthJourney, Services, dll.
 │   │   ├── data/             # site.js (kontak/link), growth.js (milestone)
 │   │   ├── hooks/            # useLenis.js
 │   │   └── index.css         # tema (Tailwind + CSS variables)
@@ -65,14 +67,14 @@ yarn start          # http://localhost:3000
 ```
 Buat file `frontend/.env`:
 ```
-REACT_APP_BACKEND_URL=http://localhost:8000
+REACT_APP_BACKEND_URL=http://localhost:8001
 ```
 
 ### Backend (opsional — untuk form lead)
 ```bash
 cd backend
 pip install -r requirements.txt
-uvicorn server:app --reload --port 8000
+uvicorn server:app --reload --port 8001
 ```
 Buat file `backend/.env`:
 ```
@@ -97,9 +99,9 @@ Semua file `.env` **di-`.gitignore`** dan **tidak** disertakan di repo. Jangan p
 
 ## 📝 Catatan
 
-- Konten & UI dalam **Bahasa Indonesia**, ditujukan untuk orang tua di Palembang.
+- Konten & UI dalam **Bahasa Indonesia**, ditujukan untuk orang tua di Pekanbaru.
 - Milestone bersifat **panduan edukatif** (diadaptasi dari Denver II), bukan diagnosis.
 
 ---
 
-© YAMET Palembang Dempo. Semua hak dilindungi.
+© YAMET Pekanbaru Kota. Semua hak dilindungi.

@@ -1,4 +1,4 @@
-# Menjalankan YAMET Dempo Landing Page di Windows (Lokal)
+# Menjalankan YAMET Pekanbaru Kota Landing Page di Windows (Lokal)
 
 Aplikasi terdiri dari **backend** (FastAPI + MongoDB) dan **frontend** (React/CRA).
 Jalankan keduanya di dua jendela terminal (PowerShell) terpisah.
@@ -18,7 +18,7 @@ File `.env` sudah saya buatkan:
 ## 1) Backend (Terminal 1)
 
 ```powershell
-cd C:\YP-Dempo-LandingPage\backend
+cd C:\YAMET-Pekanbaru-Kota-LandingPage\backend
 
 # buat & aktifkan virtual environment
 python -m venv venv
@@ -42,7 +42,7 @@ Cek berhasil: buka http://localhost:8001/docs (dokumentasi API muncul).
 ## 2) Frontend (Terminal 2)
 
 ```powershell
-cd C:\YP-Dempo-LandingPage\frontend
+cd C:\YAMET-Pekanbaru-Kota-LandingPage\frontend
 
 yarn install
 yarn start

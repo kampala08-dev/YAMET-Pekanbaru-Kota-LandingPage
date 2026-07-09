@@ -1,9 +1,9 @@
 @echo off
-title YAMET Dempo - Landing Page Dev Server
+title YAMET Pekanbaru Kota - Landing Page Dev Server
 cd /d "%~dp0frontend"
 
 echo ================================================
-echo    YAMET Dempo - Landing Page (Dev Server)
+echo    YAMET Pekanbaru Kota - Landing Page (Dev Server)
 echo ================================================
 echo.
 

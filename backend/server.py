@@ -21,7 +21,7 @@ client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # Create the main app without a prefix
-app = FastAPI(title="YAMET Palembang Dempo API")
+app = FastAPI(title="YAMET Pekanbaru Kota API")
 
 # Configure logging early so route handlers can use logger safely
 logging.basicConfig(
@@ -98,7 +98,7 @@ class Lead(BaseModel):
 # ============================================================
 @api_router.get("/")
 async def root():
-    return {"message": "YAMET Palembang Dempo API"}
+    return {"message": "YAMET Pekanbaru Kota API"}
 
 
 @api_router.post("/status", response_model=StatusCheck)
